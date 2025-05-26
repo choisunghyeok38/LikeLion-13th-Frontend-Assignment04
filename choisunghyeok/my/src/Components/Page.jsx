@@ -7,6 +7,9 @@ import Bomb from "./bomb.jpg";
 const Page = () => {
   const [modal, setModal] = useState(false);
 
+
+  const handleCloseModal = () => setModal(false);
+
   return (
     <div className="container">
       <button onClick={() => setModal(prev => !prev)}>모달 보기</button> 
@@ -15,7 +18,7 @@ const Page = () => {
       {modal && (
           <div className="message">
             <h1>💣폭탄 메세지💣</h1>
-            <Counter />
+            <Counter onZero={handleCloseModal} />
             <img src={Bomb} alt="폭탄" />
           </div>
       )}
